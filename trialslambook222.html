@@ -1,0 +1,4166 @@
+
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class of 2026 - Our Memories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&amp;family=Poppins:wght@300;400;500;600&amp;family=Dancing+Script:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    :root {
+      --color-beige: #F5F1E8;
+      --color-warm-grey: #C4B5A0;
+      --color-dusty-pink: #E8C4C4;
+      --color-sage-green: #B8C5B0;
+      --color-charcoal: #4A4847;
+      --color-light-pink: #F5E6E6;
+      --color-soft-mint: #D8E8D8;
+      
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+      --font-script: 'Dancing Script', cursive;
+      
+      --section-padding: 6rem 2rem;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-beige);
+      color: var(--color-charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+    
+    body {
+      height: 100%;
+    }
+    
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(245, 241, 232, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1.2rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(74, 72, 71, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      padding: 0.8rem 2rem;
+      box-shadow: 0 4px 30px rgba(74, 72, 71, 0.12);
+    }
+    
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-logo {
+      font-family: var(--font-script);
+      font-size: 1.8rem;
+      color: var(--color-charcoal);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-dusty-pink);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--color-dusty-pink);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 5px;
+    }
+    
+    .hamburger span {
+      width: 28px;
+      height: 2px;
+      background: var(--color-charcoal);
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: rgba(245, 241, 232, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(74, 72, 71, 0.1);
+      z-index: 999;
+    }
+    
+    .mobile-menu.open {
+      display: block;
+      animation: slideDown 0.4s ease;
+    }
+    
+    .mobile-menu a {
+      display: block;
+      padding: 1rem;
+      color: var(--color-charcoal);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(196, 181, 160, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--color-dusty-pink);
+      padding-left: 1.5rem;
+    }
+    
+    /* Music Control */
+    .music-control {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    
+    .music-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-dusty-pink), var(--color-sage-green));
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 6px 25px rgba(232, 196, 196, 0.4);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .music-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(232, 196, 196, 0.5);
+    }
+    
+    .volume-control {
+      width: 120px;
+      height: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(232, 196, 196, 0.3);
+      border-radius: 3px;
+      outline: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .music-control:hover .volume-control {
+      opacity: 1;
+    }
+    
+    .volume-control::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--color-dusty-pink);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(232, 196, 196, 0.4);
+    }
+    
+    .volume-control::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--color-dusty-pink);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(232, 196, 196, 0.4);
+      border: none;
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-light-pink) 50%, var(--color-soft-mint) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(232, 196, 196, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(184, 197, 176, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 1.2s ease-out;
+    }
+    
+    .hero-badge {
+      font-size: 0.95rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--color-warm-grey);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 10vw, 6rem);
+      color: var(--color-charcoal);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      font-weight: 800;
+    }
+    
+    .hero-year {
+      font-family: var(--font-script);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--color-dusty-pink);
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+    
+    .hero-quote {
+      font-family: var(--font-script);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--color-warm-grey);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: var(--color-warm-grey);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+    
+    /* Section Styles */
+    .journey-section, .photos-section, .videos-section, .slambook-section, .messages-section {
+      padding: var(--section-padding);
+    }
+    
+    .journey-section {
+      background: var(--color-beige);
+    }
+    
+    .photos-section {
+      background: var(--color-light-pink);
+    }
+    
+    .videos-section {
+      background: var(--color-soft-mint);
+    }
+    
+    .slambook-section {
+      background: var(--color-beige);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    
+    .section-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--color-charcoal);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .section-subtitle {
+      font-family: var(--font-script);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--color-warm-grey);
+      font-weight: 600;
+    }
+    
+    /* Timeline */
+    .timeline {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--color-dusty-pink), var(--color-sage-green));
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .timeline-item:nth-child(odd) {
+      padding-right: calc(50% + 40px);
+      text-align: right;
+    }
+    
+    .timeline-item:nth-child(even) {
+      padding-left: calc(50% + 40px);
+      text-align: left;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 24px;
+      background: var(--color-dusty-pink);
+      border-radius: 50%;
+      border: 4px solid var(--color-beige);
+      box-shadow: 0 0 20px rgba(232, 196, 196, 0.5);
+      z-index: 2;
+    }
+    
+    .timeline-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(74, 72, 71, 0.08);
+      transition: all 0.4s ease;
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(74, 72, 71, 0.12);
+    }
+    
+    .timeline-year {
+      font-family: var(--font-script);
+      font-size: 1.8rem;
+      color: var(--color-dusty-pink);
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+    
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--color-charcoal);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .timeline-desc {
+      font-size: 1rem;
+      color: var(--color-warm-grey);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    .timeline-media {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+    
+    .timeline-media-placeholder {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--color-light-pink), var(--color-soft-mint));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      margin-top: 1rem;
+    }
+    
+    /* Photo Gallery */
+    .gallery-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      cursor: pointer;
+      box-shadow: 0 10px 35px rgba(74, 72, 71, 0.1);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    
+    .gallery-item.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(74, 72, 71, 0.15);
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.15);
+    }
+    
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--color-sage-green), var(--color-dusty-pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-placeholder {
+      transform: scale(1.15);
+    }
+    
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2.5rem 1.5rem 1.5rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: white;
+      font-family: var(--font-script);
+      font-size: 1.3rem;
+      font-weight: 600;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    
+    .lightbox.open {
+      display: flex;
+      animation: fadeIn 0.4s ease;
+    }
+    
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    
+    .lightbox-placeholder {
+      width: 500px;
+      height: 500px;
+      max-width: 90vw;
+      max-height: 80vh;
+      background: linear-gradient(135deg, var(--color-sage-green), var(--color-dusty-pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10rem;
+      border-radius: 15px;
+    }
+    
+    .lightbox-caption {
+      font-family: var(--font-script);
+      font-size: 1.5rem;
+      color: white;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 3rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 10;
+    }
+    
+    .lightbox-close:hover {
+      transform: scale(1.2) rotate(90deg);
+    }
+    
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .lightbox-nav.prev {
+      left: 40px;
+    }
+    
+    .lightbox-nav.next {
+      right: 40px;
+    }
+    
+    /* Video Gallery */
+    .video-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .video-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(74, 72, 71, 0.1);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .video-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .video-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 60px rgba(74, 72, 71, 0.15);
+    }
+    
+    .video-thumbnail {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--color-charcoal), #6A6868);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    .video-thumbnail-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .video-card:hover .video-thumbnail-img {
+      transform: scale(1.1);
+    }
+    
+    .play-btn {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--color-charcoal);
+      transition: all 0.4s ease;
+      z-index: 1;
+    }
+    
+    .video-card:hover .play-btn {
+      background: var(--color-dusty-pink);
+      color: white;
+      transform: scale(1.15);
+    }
+    
+    .video-info {
+      padding: 2rem;
+    }
+    
+    .video-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .video-desc {
+      font-size: 1rem;
+      color: var(--color-warm-grey);
+      line-height: 1.7;
+    }
+    
+    /* Video Modal */
+    .video-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    
+    .video-modal.open {
+      display: flex;
+      animation: fadeIn 0.4s ease;
+    }
+    
+    .video-player-container {
+      max-width: 1000px;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      object-fit: contain;
+      max-height: 80vh;
+    }
+    .video-player-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+
+
+
+    .video-player-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      gap: 1rem;
+    }
+    
+    .video-player-placeholder .play-icon {
+      font-size: 5rem;
+      color: var(--color-dusty-pink);
+    }
+    
+    .video-player-placeholder p {
+      font-family: var(--font-script);
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .video-modal-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 3rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 10;
+    }
+    
+    .video-modal-close:hover {
+      transform: scale(1.2) rotate(90deg);
+    }
+    
+    .video-modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .video-modal-nav:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .video-modal-nav.prev {
+      left: 40px;
+    }
+    
+    .video-modal-nav.next {
+      right: 40px;
+    }
+    
+    /* Slam Book */
+    .slambook-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .slambook-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(74, 72, 71, 0.1);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .slambook-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .slambook-card:hover {
+      transform: translateY(-15px) rotateY(5deg);
+      box-shadow: 0 25px 60px rgba(74, 72, 71, 0.18);
+    }
+    
+    .slambook-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--color-light-pink), var(--color-soft-mint));
+    }
+    
+    .slambook-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--color-light-pink), var(--color-soft-mint));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+    }
+    
+    .slambook-info {
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .slambook-name {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--color-charcoal);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .slambook-nickname {
+      font-family: var(--font-script);
+      font-size: 1.3rem;
+      color: var(--color-dusty-pink);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .slambook-preview {
+      font-size: 0.95rem;
+      color: var(--color-warm-grey);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    
+    /* Slam Book Modal */
+    .slambook-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-beige);
+      z-index: 3000;
+      display: none;
+      overflow-y: auto;
+      animation: slideUp 0.5s ease;
+    }
+    
+    .slambook-modal.open {
+      display: block;
+    }
+    
+    .slambook-modal-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+    
+    .slambook-modal-close {
+      position: fixed;
+      top: 30px;
+      right: 40px;
+      width: 50px;
+      height: 50px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(74, 72, 71, 0.2);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .slambook-modal-close:hover {
+      transform: scale(1.1) rotate(90deg);
+      background: var(--color-dusty-pink);
+      color: white;
+    }
+    
+    .slambook-modal-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      background: white;
+      border: 2px solid var(--color-warm-grey);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .slambook-modal-nav:hover {
+      background: var(--color-dusty-pink);
+      color: white;
+      border-color: var(--color-dusty-pink);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .slambook-modal-nav.prev {
+      left: 40px;
+    }
+    
+    .slambook-modal-nav.next {
+      right: 40px;
+    }
+    
+    .slambook-modal-photo {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 25px;
+      margin: 0 auto 3rem;
+      display: block;
+      box-shadow: 0 20px 60px rgba(74, 72, 71, 0.15);
+    }
+    
+    .slambook-modal-photo-placeholder {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--color-light-pink), var(--color-soft-mint));
+      border-radius: 25px;
+      margin: 0 auto 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10rem;
+      box-shadow: 0 20px 60px rgba(74, 72, 71, 0.15);
+    }
+    
+    .slambook-modal-name {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--color-charcoal);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    
+    .slambook-modal-nickname {
+      font-family: var(--font-script);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--color-dusty-pink);
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+    
+    .slambook-detail-box {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 35px rgba(74, 72, 71, 0.08);
+      transition: all 0.4s ease;
+    }
+    
+    .slambook-detail-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 45px rgba(74, 72, 71, 0.12);
+    }
+    
+    .slambook-detail-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--color-warm-grey);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .slambook-detail-text {
+      font-family: var(--font-script);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      color: var(--color-charcoal);
+      line-height: 1.8;
+      font-weight: 600;
+    }
+    
+    /* Messages Section */
+    .messages-section {
+      padding: var(--section-padding);
+      background: linear-gradient(135deg, var(--color-light-pink), var(--color-beige));
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .messages-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 2rem;
+    }
+    
+    .sticky-note {
+      width: 280px;
+      min-height: 250px;
+      padding: 2rem;
+      background: #FFF9C4;
+      border-radius: 5px;
+      box-shadow: 6px 6px 25px rgba(74, 72, 71, 0.2);
+      transform: rotate(var(--rotation, 0deg));
+      transition: all 0.4s ease;
+      animation: float 5s ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+      opacity: 0;
+    }
+    
+    .sticky-note.visible {
+      opacity: 1;
+    }
+    
+    .sticky-note:nth-child(1) { --rotation: -3deg; --delay: 0s; background: #FFF9C4; }
+    .sticky-note:nth-child(2) { --rotation: 2deg; --delay: 0.5s; background: #F8BBD9; }
+    .sticky-note:nth-child(3) { --rotation: -2deg; --delay: 1s; background: #C8E6C9; }
+    .sticky-note:nth-child(4) { --rotation: 3deg; --delay: 1.5s; background: #BBDEFB; }
+    .sticky-note:nth-child(5) { --rotation: -1deg; --delay: 2s; background: #FFE0B2; }
+    .sticky-note:nth-child(6) { --rotation: 2deg; --delay: 2.5s; background: #E1BEE7; }
+    .sticky-note:nth-child(7) { --rotation: -2deg; --delay: 3s; background: #FFF9C4; }
+    .sticky-note:nth-child(8) { --rotation: 1deg; --delay: 3.5s; background: #F8BBD9; }
+    .sticky-note:nth-child(9) { --rotation: -1deg; --delay: 4s; background: #C8E6C9; }
+    .sticky-note:nth-child(10) { --rotation: 3deg; --delay: 4.5s; background: #BBDEFB; }
+    .sticky-note:nth-child(11) { --rotation: -3deg; --delay: 0s; background: #FFF9C4; }
+    .sticky-note:nth-child(12) { --rotation: 2deg; --delay: 0.5s; background: #F8BBD9; }
+    .sticky-note:nth-child(13) { --rotation: -2deg; --delay: 1s; background: #C8E6C9; }
+    .sticky-note:nth-child(14) { --rotation: 3deg; --delay: 1.5s; background: #BBDEFB; }
+    .sticky-note:nth-child(15) { --rotation: -1deg; --delay: 2s; background: #FFE0B2; }
+    .sticky-note:nth-child(16) { --rotation: 2deg; --delay: 2.5s; background: #E1BEE7; }
+    .sticky-note:nth-child(17) { --rotation: -2deg; --delay: 3s; background: #FFF9C4; }
+    .sticky-note:nth-child(18) { --rotation: 1deg; --delay: 3.5s; background: #F8BBD9; }
+    .sticky-note:nth-child(19) { --rotation: -1deg; --delay: 4s; background: #C8E6C9; }
+    .sticky-note:nth-child(20) { --rotation: 3deg; --delay: 4.5s; background: #BBDEFB; }
+    .sticky-note:nth-child(21) { --rotation: -3deg; --delay: 0s; background: #FFF9C4; }
+    .sticky-note:nth-child(22) { --rotation: 2deg; --delay: 0.5s; background: #F8BBD9; }
+    .sticky-note:nth-child(23) { --rotation: -2deg; --delay: 1s; background: #C8E6C9; }
+    .sticky-note:nth-child(24) { --rotation: 3deg; --delay: 1.5s; background: #BBDEFB; }
+    .sticky-note:nth-child(25) { --rotation: -1deg; --delay: 2s; background: #FFE0B2; }
+    .sticky-note:nth-child(26) { --rotation: 2deg; --delay: 2.5s; background: #E1BEE7; }
+    .sticky-note:nth-child(27) { --rotation: -2deg; --delay: 3s; background: #FFF9C4; }
+    .sticky-note:nth-child(28) { --rotation: 1deg; --delay: 3.5s; background: #F8BBD9; }
+    .sticky-note:nth-child(29) { --rotation: -1deg; --delay: 4s; background: #C8E6C9; }
+    .sticky-note:nth-child(30) { --rotation: 3deg; --delay: 4.5s; background: #BBDEFB; }
+    
+    .sticky-note:hover {
+      transform: rotate(0deg) scale(1.08);
+      z-index: 10;
+      box-shadow: 8px 8px 35px rgba(74, 72, 71, 0.3);
+    }
+    
+    .sticky-note p {
+      font-family: var(--font-script);
+      font-size: 1.2rem;
+      color: var(--color-charcoal);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .sticky-note .author {
+      font-family: var(--font-script);
+      font-size: 1.1rem;
+      color: var(--color-warm-grey);
+      text-align: right;
+      display: block;
+      font-weight: 700;
+    }
+    
+    /* Message Modal */
+    .message-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    
+    .message-modal.open {
+      display: flex;
+      animation: fadeIn 0.4s ease;
+    }
+    
+    .message-modal-content {
+      max-width: 700px;
+      width: 100%;
+      padding: 3rem;
+      background: var(--color-beige);
+      border-radius: 25px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+    
+    .message-modal-text {
+      font-family: var(--font-script);
+      font-size: 2rem;
+      color: var(--color-charcoal);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .message-modal-author {
+      font-family: var(--font-script);
+      font-size: 1.5rem;
+      color: var(--color-warm-grey);
+      text-align: right;
+      display: block;
+      font-weight: 700;
+    }
+    
+    .message-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(74, 72, 71, 0.2);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .message-modal-close:hover {
+      transform: scale(1.1) rotate(90deg);
+      background: var(--color-dusty-pink);
+      color: white;
+    }
+    
+    .message-modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      background: white;
+      border: 2px solid var(--color-warm-grey);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+    
+    .message-modal-nav:hover {
+      background: var(--color-dusty-pink);
+      color: white;
+      border-color: var(--color-dusty-pink);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .message-modal-nav.prev {
+      left: -80px;
+    }
+    
+    .message-modal-nav.next {
+      right: -80px;
+    }
+    
+    /* Quotes Section */
+    .quotes-section {
+      padding: var(--section-padding);
+      background: var(--color-dusty-pink);
+      text-align: center;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .quote-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .quote-text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--color-charcoal);
+      line-height: 1.5;
+      font-weight: 600;
+      opacity: 0;
+      animation: quoteFade 10s infinite;
+      text-align: center;
+      margin: 1rem 0;
+    }
+    
+    .quote-marks {
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1;
+      display: block;
+      margin: 0;
+    }
+    
+    .quote-marks:first-child {
+      align-self: flex-start;
+      margin-bottom: -1rem;
+    }
+    
+    .quote-marks:last-child {
+      align-self: flex-end;
+      margin-top: -1rem;
+    }
+    
+    /* Movies Section */
+    .movies-section {
+      padding: var(--section-padding);
+      background: var(--color-charcoal);
+    }
+    
+    .movies-section .section-header h2,
+    .movies-section .section-header .section-subtitle {
+      color: var(--color-beige);
+    }
+    
+    .video-player-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+    
+    .video-display {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      position: relative;
+    }
+    
+    .main-video-player {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    
+    .video-display.has-video .main-video-player {
+      display: block;
+    }
+    
+    .video-display.has-video .video-placeholder-text {
+      display: none;
+    }
+    
+    .video-placeholder-text {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .video-placeholder-text p {
+      font-family: var(--font-script);
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 1rem;
+    }
+    
+    .video-controls {
+      background: linear-gradient(135deg, var(--color-dusty-pink), var(--color-sage-green));
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .progress-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .time-display {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: white;
+      min-width: 100px;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .progress-bar {
+      flex: 1;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .progress-filled {
+      height: 100%;
+      background: white;
+      width: 0%;
+      transition: width 0.1s linear;
+      border-radius: 4px;
+    }
+    
+    .controls-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .control-btn {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .control-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .control-btn.play-pause {
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      background: var(--color-beige);
+    }
+    
+    .volume-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .volume-icon {
+      color: white;
+      font-size: 1.3rem;
+      min-width: 30px;
+      text-align: center;
+    }
+    
+    .video-volume-slider {
+      width: 120px;
+      height: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 3px;
+      outline: none;
+    }
+    
+    .video-volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .video-volume-slider::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      border: none;
+    }
+    
+    .video-title-display {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+    
+    .video-title-display h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: white;
+      margin: 0;
+      font-weight: 600;
+    }
+    
+    .fullscreen-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+    
+    .fullscreen-btn:hover {
+      transform: scale(1.1);
+      background: var(--color-dusty-pink);
+      color: white;
+    }
+    
+    .movie-fullscreen-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 4000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .movie-fullscreen-modal.open {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .fullscreen-video-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    
+    .fullscreen-video-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      position: relative;
+    }
+    
+    .fullscreen-video-player {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+    
+    .fullscreen-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .fullscreen-close-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1) rotate(90deg);
+    }
+    
+    .fullscreen-controls {
+      background: linear-gradient(135deg, var(--color-dusty-pink), var(--color-sage-green));
+      padding: 1.5rem 2rem;
+    }
+    
+    .fullscreen-title {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .fullscreen-title h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: white;
+      margin: 0;
+      font-weight: 600;
+    }
+    
+    /* Credits Section */
+    .credits-section {
+      padding: var(--section-padding);
+      background: var(--color-beige);
+      color: var(--color-charcoal);
+      text-align: center;
+    }
+    
+    .credits-section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 4rem;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+    
+    .credits-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    
+    .credits-item h3 {
+      font-family: var(--font-script);
+      font-size: 1.8rem;
+      color: var(--color-dusty-pink);
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+    
+    .credits-item p {
+      font-size: 1.1rem;
+      color: var(--color-charcoal);
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+    
+    .credits-footer {
+      margin-top: 5rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(74, 72, 71, 0.2);
+    }
+    
+    .credits-footer p {
+      font-family: var(--font-script);
+      font-size: 1.5rem;
+      color: var(--color-dusty-pink);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 2rem;
+      background: white;
+      border-radius: 50px;
+      text-decoration: none;
+      color: var(--color-charcoal);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      box-shadow: 0 5px 20px rgba(74, 72, 71, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(74, 72, 71, 0.25);
+      background: var(--color-dusty-pink);
+      color: white;
+    }
+    
+    .social-icon {
+      font-size: 1.5rem;
+    }
+    
+    .credits-footer small {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      display: block;
+      margin-top: 1rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-15px);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: rotate(var(--rotation, 0deg)) translateY(0);
+      }
+      50% {
+        transform: rotate(var(--rotation, 0deg)) translateY(-15px);
+      }
+    }
+    
+    @keyframes quoteFade {
+      0%, 100% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      10%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding-left: 70px;
+        padding-right: 0;
+        text-align: left;
+      }
+      
+      .timeline-dot {
+        left: 30px;
+        transform: translateX(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+      
+      :root {
+        --section-padding: 4rem 1.5rem;
+      }
+      
+      .hero {
+        padding: 6rem 1.5rem 3rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .slambook-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .sticky-note {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .music-control {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .music-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+      }
+      
+      .lightbox-close,
+      .video-modal-close {
+        top: 20px;
+        right: 20px;
+        font-size: 2.5rem;
+      }
+      
+      .slambook-modal-close,
+      .message-modal-close {
+        top: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+      }
+      
+      .lightbox-nav,
+      .video-modal-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      
+      .lightbox-nav.prev,
+      .video-modal-nav.prev {
+        left: 10px;
+      }
+      
+      .lightbox-nav.next,
+      .video-modal-nav.next {
+        right: 10px;
+      }
+      
+      .message-modal-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      
+      .message-modal-nav.prev {
+        left: 10px;
+      }
+      
+      .message-modal-nav.next {
+        right: 10px;
+      }
+      
+      .message-modal-text {
+        font-size: 1.5rem;
+      }
+      
+      .slambook-modal-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      
+      .slambook-modal-nav.prev {
+        left: 10px;
+      }
+      
+      .slambook-modal-nav.next {
+        right: 10px;
+      }
+      
+      .credits-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .controls-buttons {
+        gap: 0.8rem;
+      }
+      
+      .control-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+      
+      .control-btn.play-pause {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+      }
+      
+      .video-volume-slider {
+        width: 100px;
+      }
+      
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding-left: 50px;
+      }
+      
+      .timeline-dot {
+        left: 20px;
+      }
+      
+      .timeline::before {
+        left: 20px;
+      }
+      
+      .slambook-modal-content {
+        padding: 5rem 1.5rem 3rem;
+      }
+      
+      .video-controls {
+        padding: 1.5rem;
+      }
+      
+      .control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      .control-btn.play-pause {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+      
+      .volume-container {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .video-volume-slider {
+        width: 80px;
+      }
+      
+      .progress-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .time-display {
+        min-width: auto;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- ========================================
+       🎵 BACKGROUND MUSIC SETUP
+       ========================================
+       
+       HOW TO ADD MORE SONGS:
+       1. Save your music file as song-3.mp3, song-4.mp3, etc.
+       2. Copy an audio block below
+       3. Update the src to your new file name
+       4. Songs will auto-play in order
+       
+       CURRENT COUNT: 2 songs
+  -->
+  <audio  class="bg-music-track"><source src="Nilaavil Ellame.mp3" type="audio/mpeg" autoplay loop> <source src="song-1.m4a" type="audio/mp4">
+  </audio>
+ <!-- ===== TO ADD MORE SONGS: Copy from here =====
+  <audio class="bg-music-track">
+    <source src="song-3.mp3" type="audio/mpeg">
+    <source src="song-3.m4a" type="audio/mp4">
+  </audio>
+  ===== To here ===== --> <!-- Music Control -->
+  <div class="music-control"><input type="range" min="0" max="1" step="0.01" value="0.35" class="volume-control" id="volumeSlider"> <button class="music-btn" id="musicToggle" aria-label="Toggle music">🎵</button>
+  </div><!-- Navigation -->
+  <nav class="navbar" id="navbar">
+   <div class="nav-container"><a href="#home" class="nav-logo">Our Memories</a>
+    <ul class="nav-links">
+     <li><a href="#home">Home</a></li>
+     <li><a href="#journey">Journey</a></li>
+     <li><a href="#photos">Photos</a></li>
+     <li><a href="#videos">Videos</a></li>
+     <li><a href="#slambook">Slam Book</a></li>
+     <li><a href="#messages">Messages</a></li>
+     <li><a href="#movies">Movies</a></li>
+     <li><a href="#credits">Credits</a></li>
+    </ul><button class="hamburger" id="hamburger" aria-label="Menu"> <span></span> <span></span> <span></span> </button>
+   </div>
+  </nav><!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu"><a href="#home">Home</a> <a href="#journey">Journey</a> <a href="#photos">Photos</a> <a href="#videos">Videos</a> <a href="#slambook">Slam Book</a> <a href="#messages">Messages</a> <a href="#movies">Movies</a> <a href="#credits">Credits</a>
+  </div><!-- ========================================
+       🏠 HERO SECTION
+       ========================================
+       
+       TO EDIT:
+       - School name: Change "Sunshine High School"
+       - Class: Change "Class of 2026"
+       - Quote: Change the hero-quote text
+  -->
+  <section class="hero" id="home">
+   <div class="hero-content">
+    <p class="hero-badge">School</p>
+    <h1>Class of 2024-26</h1>
+    <p class="hero-year">Forever in Our Hearts</p>
+    <p class="hero-quote">"We didn't know these were the days we'd miss."</p>
+   </div>
+   <div class="scroll-indicator" onclick="document.getElementById('journey').scrollIntoView({behavior: 'smooth'})">
+    ↓
+   </div>
+  </section><!-- ========================================
+       📅 TIMELINE JOURNEY SECTION
+       ========================================
+       
+       HOW TO ADD MORE TIMELINE ITEMS:
+       1. Save your image as "timeline-6.jpg" (next number)
+       2. Copy any timeline-item block below
+       3. Update year, title, and description
+       4. Update image src to your new file
+       
+       CURRENT COUNT: 5 timeline items
+  -->
+  <section class="journey-section" id="journey">
+   <div class="section-header">
+    <h2>Our Journey</h2>
+    <p class="section-subtitle">The moments that made us who we are</p>
+   </div>
+   <div class="timeline"><!-- ===== TIMELINE ITEM 1 ===== 
+           File needed: timeline-1.jpg -->
+    <div class="timeline-item">
+     <div class="timeline-dot"></div>
+     <div class="timeline-content">
+      <p class="timeline-year">2024</p>
+      <h3 class="timeline-title">First Day of School</h3>
+      <p class="timeline-desc">We walked in as strangers, nervous and excited. Little did we know these people would become our family.</p><img src="" class="timeline-media" alt="First Day" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="timeline-media-placeholder" style="display:none;">
+       ���
+      </div>
+     </div>
+    </div><!-- ===== TIMELINE ITEM 2 ===== 
+           File needed: timeline-2.jpg -->
+    <div class="timeline-item">
+     <div class="timeline-dot"></div>
+     <div class="timeline-content">
+      <p class="timeline-year">202</p>
+      <h3 class="timeline-title">Sports Day Victory</h3>
+      <p class="timeline-desc">The day we proved that together, we're unstoppable. Champions not just in sports, but in spirit.</p><img src="" class="timeline-media" alt="Sports Day" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="timeline-media-placeholder" style="display:none;">
+       🏆
+      </div>
+     </div>
+    </div><!-- ===== TIMELINE ITEM 3 ===== 
+           File needed: timeline-3.jpg -->
+    <div class="timeline-item">
+     <div class="timeline-dot"></div>
+     <div class="timeline-content">
+      <p class="timeline-year">202</p>
+      <h3 class="timeline-title">Annual Function</h3>
+      <p class="timeline-desc">Lights, music, and memories. The night we danced like nobody was watching and laughed until our stomachs hurt.</p><img src="" class="timeline-media" alt="Annual Function" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="timeline-media-placeholder" style="display:none;">
+       🎪
+      </div>
+     </div>
+    </div><!-- ===== TIMELINE ITEM 4 ===== 
+           File needed: timeline-4.jpg -->
+    <div class="timeline-item">
+     <div class="timeline-dot"></div>
+     <div class="timeline-content">
+      <p class="timeline-year">202</p>
+      <h3 class="timeline-title">Class Trip</h3>
+      <p class="timeline-desc">Adventures, inside jokes, and bonding that would last a lifetime. The trip that changed everything.</p><img src="" class="timeline-media" alt="Class Trip" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="timeline-media-placeholder" style="display:none;">
+       🚌
+      </div>
+     </div>
+    </div><!-- ===== TIMELINE ITEM 5 ===== 
+           File needed: timeline-5.jpg -->
+    <div class="timeline-item">
+     <div class="timeline-dot"></div>
+     <div class="timeline-content">
+      <p class="timeline-year">2026</p>
+      <h3 class="timeline-title">Graduation Day</h3>
+      <p class="timeline-desc">The end of an era, the beginning of forever friendships. We made it, together.</p><img src="" class="timeline-media" alt="Graduation" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="timeline-media-placeholder" style="display:none;">
+       🎓
+      </div>
+     </div>
+    </div><!-- ===== TO ADD TIMELINE ITEM 6: Copy from here =====
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <p class="timeline-year">2026</p>
+          <h3 class="timeline-title">Your Event Title</h3>
+          <p class="timeline-desc">Your event description here.</p>
+          <img src="timeline-6.jpg" class="timeline-media" alt="Your Event" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="timeline-media-placeholder" style="display:none;">📸</div>
+        </div>
+      </div>
+      ===== To here ===== -->
+   </div>
+  </section><!-- ========================================
+       📸 PHOTO GALLERY SECTION
+       ========================================
+       
+       HOW TO ADD MORE PHOTOS:
+       1. Save your image as "photo-13.jpg" (next number)
+       2. Copy any gallery-item block below
+       3. Update onclick number: onclick="openLightbox(12)" (next index)
+       4. Update src to your new file
+       5. Update caption text
+       6. Add to photos array in JavaScript (see bottom of file)
+       
+       CURRENT COUNT: 12 photos
+  -->
+  <section class="photos-section" id="photos">
+   <div class="section-header">
+    <h2>Photo Gallery</h2>
+    <p class="section-subtitle">Frozen moments in time</p>
+    <small>****Click on the image to view****** </small>
+   </div>
+   <div class="gallery-grid"><!-- ===== PHOTO 1 ===== 
+           File needed: photo-1.jpg -->
+    <div class="gallery-item" onclick="openLightbox(0)"><img src="" alt="First day of school" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      📸
+     </div>
+     <div class="gallery-caption">
+      First day of school [class 11]
+     </div>
+    </div><!-- ===== PHOTO 2 ===== 
+           File needed: photo-2.jpg -->
+    <div class="gallery-item" onclick="openLightbox(1)"><img src="" alt="Birthday celebrations" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      🎉
+     </div>
+     <div class="gallery-caption">
+      Inaugration day
+     </div>
+    </div><!-- ===== PHOTO 3 ===== 
+           File needed: photo-3.jpg -->
+    <div class="gallery-item" onclick="openLightbox(2)"><img src="" alt="Sports day" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      🏃
+     </div>
+     <div class="gallery-caption">
+      Sports day
+     </div>
+    </div><!-- ===== PHOTO 4 ===== 
+           File needed: photo-4.jpg -->
+    <div class="gallery-item" onclick="openLightbox(3)"><img src="" alt="Study sessions" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      📖
+     </div>
+     <div class="gallery-caption">
+      Sports
+     </div>
+    </div><!-- ===== PHOTO 5 ===== 
+           File needed: photo-5.jpg -->
+    <div class="gallery-item" onclick="openLightbox(4)"><img src="" alt="Annual function" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      🎭
+     </div>
+     <div class="gallery-caption">
+      Independence day
+     </div>
+    </div><!-- ===== PHOTO 6 ===== 
+           File needed: photo-6.jpg -->
+    <div class="gallery-item" onclick="openLightbox(5)"><img src="" alt="Class trip" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      🌴
+     </div>
+     <div class="gallery-caption">
+      Independance day
+     </div>
+    </div><!-- ===== PHOTO 7 ===== 
+           File needed: photo-7.jpg -->
+    <div class="gallery-item" onclick="openLightbox(6)"><img src="" alt="Graduation day" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      🎓
+     </div>
+     <div class="gallery-caption">
+      Exihibition and Food fest
+     </div>
+    </div><!-- ===== PHOTO 8 ===== 
+           File needed: photo-8.jpg -->
+    <div class="gallery-item" onclick="openLightbox(7)"><img src="" alt="Last day together" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      💕
+     </div>
+     <div class="gallery-caption">
+      New year
+     </div>
+    </div><!-- ===== PHOTO 9 ===== 
+           File needed: photo-9.jpg -->
+    <div class="gallery-item" onclick="openLightbox(8)"><img src="" alt="Lunch breaks" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      🍕
+     </div>
+     <div class="gallery-caption">
+      Onam celebrations
+     </div>
+    </div><!-- ===== PHOTO 10 ===== 
+           File needed: photo-10.jpg -->
+    <div class="gallery-item" onclick="openLightbox(9)"><img src="" alt="Art class fun" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      🎨
+     </div>
+     <div class="gallery-caption">
+      Onam celebrations
+     </div>
+    </div><!-- ===== PHOTO 11 ===== 
+           File needed: photo-11.jpg -->
+    <div class="gallery-item" onclick="openLightbox(10)"><img src="" alt="Library moments" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      📚
+     </div>
+     <div class="gallery-caption">
+      Teacher's day
+     </div>
+    </div><!-- ===== PHOTO 12 ===== 
+           File needed: photo-12.jpg -->
+    <div class="gallery-item" onclick="openLightbox(11)"><img src="" alt="Farewell" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="gallery-placeholder" style="display:none;">
+      🎤
+     </div>
+     <div class="gallery-caption">
+      Farewell
+     </div>
+    </div>
+    
+    <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Class 11 ends</div>
+      </div>
+      
+      <div class="gallery-item" onclick="openLightbox(13)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Class 12 Beginning</div>
+      </div>
+      
+      <div class="gallery-item" onclick="openLightbox(14)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Environmental day</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(15)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Yoga Day</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">I V</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Tour</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Tour</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Annual day</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Annual day</div>
+      </div>
+
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Farewell</div>
+      </div>
+      
+      
+      
+      
+      <!-- ===== TO ADD PHOTO 13: Copy from here =====
+      <div class="gallery-item" onclick="openLightbox(12)">
+        <img src="photo-13.jpg" alt="Your caption" class="gallery-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="gallery-placeholder" style="display:none;">📸</div>
+        <div class="gallery-caption">Your caption here</div>
+      </div>
+      ===== To here, then add to photos array below ===== -->
+   </div>
+  </section><!-- ========================================
+       📹 VIDEO GALLERY SECTION
+       ========================================
+       
+       HOW TO ADD MORE VIDEOS:
+       1. Add new video file (e.g., video-7.mp4)
+       2. Add matching thumbnail (e.g., thumbnail-7.jpg)
+       3. Copy any video-card block below
+       4. Update the onclick number: onclick="openVideoModal(6)" (next number)
+    
+       5. Update thumbnail src: thumbnail-7.jpg
+       6. Update title and description
+       7. Add to videos array in JavaScript (see bottom of file)
+       
+       CURRENT COUNT: 6 videos
+  -->
+  <section class="videos-section" id="videos">
+   <div class="section-header">
+    <h2>Video Gallery</h2>
+    <p class="section-subtitle">Relive the moments</p>
+   </div>
+   <div class="video-grid"><!-- ===== VIDEO 1 ===== 
+           Files needed: video-1.mp4, thumbnail-1.jpg -->
+    <div class="video-card" onclick="openVideoModal(0)">
+     <div class="video-thumbnail"><img src="thumbnail-1.jpg" class="video-thumbnail-img" alt="Class Photo Day" loading="lazy" onerror="this.style.display='none';">
+      <div class="play-btn">
+       ▶
+      </div>
+     </div>
+     <div class="video-info">
+      <h3 class="video-title">Class Photo Day</h3>
+      <p class="video-desc">Behind the scenes of our official photo day</p>
+     </div>
+    </div><!-- ===== VIDEO 2 ===== 
+           Files needed: video-2.mp4, thumbnail-2.jpg -->
+    <div class="video-card" onclick="openVideoModal(1)">
+     <div class="video-thumbnail"><img src="thumbnail-2.jpg" class="video-thumbnail-img" alt="Sports Day" loading="lazy" onerror="this.style.display='none';">
+      <div class="play-btn">
+       ▶
+      </div>
+     </div>
+     <div class="video-info">
+      <h3 class="video-title">Sports Day Highlights</h3>
+      <p class="video-desc">The best moments from our championship</p>
+     </div>
+    </div><!-- ===== VIDEO 3 ===== 
+           Files needed: video-3.mp4, thumbnail-3.jpg -->
+    <div class="video-card" onclick="openVideoModal(2)">
+     <div class="video-thumbnail"><img src="thumbnail-3.jpg" class="video-thumbnail-img" alt="Annual Function" loading="lazy" onerror="this.style.display='none';">
+      <div class="play-btn">
+       ▶
+      </div>
+     </div>
+     <div class="video-info">
+      <h3 class="video-title">Annual Function</h3>
+      <p class="video-desc">Our magical performance night</p>
+     </div>
+    </div><!-- ===== VIDEO 4 ===== 
+           Files needed: video-4.mp4, thumbnail-4.jpg -->
+    <div class="video-card" onclick="openVideoModal(3)">
+     <div class="video-thumbnail"><img src="thumbnail-4.jpg" class="video-thumbnail-img" alt="Class Trip" loading="lazy" onerror="this.style.display='none';">
+      <div class="play-btn">
+       ▶
+      </div>
+     </div>
+     <div class="video-info">
+      <h3 class="video-title">Class Trip Vlog</h3>
+      <p class="video-desc">Adventures and memories from our trip</p>
+     </div>
+    </div><!-- ===== VIDEO 5 ===== 
+           Files needed: video-5.mp4, thumbnail-5.jpg -->
+    <div class="video-card" onclick="openVideoModal(4)">
+     <div class="video-thumbnail"><img src="" class="video-thumbnail-img" alt="Farewell Party" loading="lazy" onerror="this.style.display='none';">
+      <div class="play-btn">
+       ▶
+      </div>
+     </div>
+     <div class="video-info">
+      <h3 class="video-title">Farewell Party</h3>
+      <p class="video-desc">Tears, laughter, and goodbye speeches</p>
+     </div>
+    </div><!-- ===== VIDEO 6 ===== 
+           Files needed: video-6.mp4, thumbnail-6.jpg -->
+    <div class="video-card" onclick="openVideoModal(5)">
+     <div class="video-thumbnail"><img src="thumbnail-6.jpg" class="video-thumbnail-img" alt="Best Pranks" loading="lazy" onerror="this.style.display='none';">
+      <div class="play-btn">
+       ▶
+      </div>
+     </div>
+     <div class="video-info">
+      <h3 class="video-title">Best Pranks Ever</h3>
+      <p class="video-desc">The funniest moments caught on camera</p>
+     </div>
+    </div><!-- ===== TO ADD VIDEO 7: Copy from here =====
+      <div class="video-card" onclick="openVideoModal(6)">
+        <div class="video-thumbnail">
+          <img src="thumbnail-7.jpg" class="video-thumbnail-img" alt="Your Title" loading="lazy" onerror="this.style.display='none';">
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="video-info">
+          <h3 class="video-title">Your Video Title</h3>
+          <p class="video-desc">Your video description</p>
+        </div>
+      </div>
+      ===== To here, then add to videos array below ===== -->
+   </div>
+  </section><!-- ========================================
+       📖 SLAM BOOK SECTION
+       ========================================
+       
+       HOW TO ADD MORE STUDENTS:
+       1. Save student photo as "student-7.jpg" (next number)
+       2. Copy any slambook-card block below
+       3. Update onclick number: onclick="openSlambookModal(6)"
+       4. Update image src, name, nickname, preview
+       5. Add full details to studentsData array in JavaScript
+       
+       CURRENT COUNT: 6 students
+  -->
+  <section class="slambook-section" id="slambook">
+   <div class="section-header">
+    <h2>Slam Book</h2>
+    <p class="section-subtitle">The friends who became family</p>
+    <small>***Click on the image to view more******</small>
+   </div>
+   <div class="slambook-grid"><!-- ===== STUDENT 1 ===== 
+           File needed: student-1.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(0)"><img src="" alt="Midhun Sekhar .M.R" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">"Name"</h3>
+      <p class="slambook-nickname">"The Gym Bro"</p>
+      <p class="slambook-preview">"Thank you for being there through everything... "</p>
+     </div>
+    </div><!-- ===== STUDENT 2 ===== 
+           File needed: student-2.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(1)"><img src="" alt="Soorya P" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">"The Class Clown"</p>
+      <p class="slambook-preview">"Life is too short to be serious all the time... "</p>
+     </div>
+    </div><!-- ===== STUDENT 3 ===== 
+           File needed: student-3.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(2)"><img src="" alt="Anamika S Anil" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👩‍🎓
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">"The ALL Rounder"</p>
+      <p class="slambook-preview">"Dreams don't work unless you do... "</p>
+     </div>
+    </div><!-- ===== STUDENT 4 ===== 
+           File needed: student-4.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(3)"><img src="" alt="V Avinesh kumar " class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      🧑
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">"Teamwork makes the dream work... "</p>
+     </div>
+    </div><!-- ===== STUDENT 5 ===== 
+           File needed: student-5.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(4)"><img src="" alt="BS NANDHAKISHORE " class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👧
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">"Colors speak louder than words...  "</p>
+     </div>
+    </div><!-- ===== STUDENT 6 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(5)"><img src="" alt="Gouri akhila" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">"Still waters run deep... "</p>
+     </div>
+    </div><!-- ===== STUDENT 7 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(6)"><img src="" alt="Shabana S S" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">""</p>
+     </div>
+    </div><!-- ===== STUDENT 8 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(7)"><img src="" alt="Adarsh S R" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">""</p>
+     </div>
+    </div><!-- ===== STUDENT 9 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(8)"><img src="" alt="Aiswarya s" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">""</p>
+     </div>
+    </div><!-- ===== STUDENT 10 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(9)"><img src="" alt="Ak evane enikku onnu kananam" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">""</p>
+     </div>
+    </div><!-- ===== STUDENT 11 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(10)"><img src="" alt="Akshara R Lal" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div><!-- ===== STUDENT 12 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(11)"><img src="" alt="Sandra S" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">""</p>
+     </div>
+    </div><!-- ===== STUDENT 13 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(12)"><img src="" alt="Akshara. S" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div><!-- ===== STUDENT 14 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(13)"><img src="" alt="Radhika" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div><!-- ===== STUDENT 15 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(14)"><img src="" alt="Sangeeth kumar.M" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div><!-- ===== STUDENT 16 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(15)"><img src="" alt="Nihal M.S" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div><!-- ===== STUDENT 17 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(16)"><img src="" alt="Sreelekshmi " class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div><!-- ===== STUDENT 18 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(17)"><img src="" alt="Sandra. A. S" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Sandra. A. S</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div><!-- ===== STUDENT 19 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(18)"><img src="" alt="S.Mohammed Afroz " class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">". "</p>
+     </div>
+    </div><!-- ===== STUDENT 20 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(19)"><img src="" alt="Goutham krishna " class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div><!-- ===== STUDENT 21 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(20)"><img src="" alt="SACHIN S.S." class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Name</h3>
+      <p class="slambook-nickname">""</p>
+      <p class="slambook-preview">" "</p>
+     </div>
+    </div>
+    <!--
+    <!-- ===== STUDENT 22 ===== 
+           File needed: student-6.jpg -->
+    <div class="slambook-card" onclick="openSlambookModal(21)"><img src="student-6.jpg" alt="Vikram Singh" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="slambook-photo-placeholder" style="display:none;">
+      👦
+     </div>
+     <div class="slambook-info">
+      <h3 class="slambook-name">Steve</h3>
+      <p class="slambook-nickname">"The Quiet One"</p>
+      <p class="slambook-preview">"Still waters run deep... "</p>
+     </div>
+    </div>
+    -->
+    
+    <!-- ===== TO ADD STUDENT 7: Copy from here =====
+      <div class="slambook-card" onclick="openSlambookModal(6)">
+        <img src="student-7.jpg" alt="Student Name" class="slambook-photo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="slambook-photo-placeholder" style="display:none;">👤</div>
+        <div class="slambook-info">
+          <h3 class="slambook-name">Student Name</h3>
+          <p class="slambook-nickname">"Nickname"</p>
+          <p class="slambook-preview">"Preview text... "</p>
+        </div>
+      </div>
+      ===== To here, then add full details to studentsData array below ===== -->
+   </div>
+  </section><!-- ========================================
+       💌 MESSAGES SECTION
+       ========================================
+       
+       HOW TO ADD MORE MESSAGES:
+       1. Copy any sticky-note block below
+       2. Update onclick number: onclick="openMessageModal(10)"
+       3. Update message text and author
+       4. Add to messagesData array in JavaScript
+       
+       CURRENT COUNT: 10 messages
+  -->
+  <section class="messages-section" id="messages">
+   <div class="section-header">
+    <h2>Messages &amp; Notes</h2>
+    <p class="section-subtitle">Words from the heart</p>
+    <small>****Click to view more****</small>
+   </div>
+   <div class="messages-container"><!-- ===== MESSAGE 1 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(0)">
+     <p>"Ellarkkum Joli kitteett 1st enikk chelav cheyyanamm..... Aa joli kittannn njn prarthikkum😌"</p><span class="author">- Name</span>
+    </div><!-- ===== MESSAGE 2 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(1)">
+     <p>"Remember who you are"</p><span class="author">- Name</span>
+    </div><!-- ===== MESSAGE 3 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(2)">
+     <p>"No matter where life takes us, remember this version of us!🤧🖤"</p><span class="author">- Name</span>
+    </div><!-- ===== MESSAGE 4 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(3)">
+     <p>"thank you all I am not a emotional guy and I don\'t show that much of a emotion in .......... "</p><span class="author">- Name </span>
+    </div>
+    <div class="sticky-note" onclick="openMessageModal(4)">
+     <p>"I just wanna say is that we will always......... "</p><span class="author">- Name </span>
+    </div><!-- ===== MESSAGE 5 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(5)">
+     <p>"The future belongs to those who believe in the beauty of their dreams"</p><span class="author">- Name</span>
+    </div><!-- ===== MESSAGE 6 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(6)">
+     <p>"Live your life to the fullest❤️All the best❤️"</p><span class="author">- Name</span>
+    </div><!-- ===== MESSAGE 7 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(7)">
+     <p>"Don't burn yourself to warm others"</p><span class="author">- Name</span>
+    </div><!-- ===== MESSAGE 8 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(8)">
+     <p>"Vallapozhum vilikane guys💗"</p><span class="author">- Name</span>
+    </div><!-- ===== MESSAGE 9 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(9)">
+     <p>"Remember me as a drop of water in the cascade of ur memory 🥹"</p><span class="author">- Name</span>
+    </div><!-- ===== MESSAGE 10 ===== -->
+    <div class="sticky-note" onclick="openMessageModal(10)">
+     <p>"Hotwheels vaangi tharoo... Allel oru  tourist bus aayalum mathi.. 🥲"</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(11)">
+     <p>"As I approach the end of this memorable journey, it's important to express how....... "</p><span class="author">- Name</span>
+    </div>
+    <div class="sticky-note" onclick="openMessageModal(12)">
+     <p>"While I may not be the most expressive person by nature, I feel compelled to share my...... "</p><span class="author">- Name</span>
+    </div>
+    <div class="sticky-note" onclick="openMessageModal(13)">
+     <p>"and received invaluable support from an incredible group of teachers....... "</p><span class="author">- Name</span>
+    </div>
+    <div class="sticky-note" onclick="openMessageModal(14)">
+     <p> "Each experience is deeply treasured and the memories we have created are priceless. Despite ......... "</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(15)">
+     <p>"" Chase your dreams, laugh often, and make every moment count!”"</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(16)">
+     <p>"Sucess doesn't come overnight but with our hardwork and confidence..... So go ahead till you reach your destination ❤️‍🔥"</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(17)">
+     <p>"BSc padichalum MSc padichalum enea marakaruthu But seriously thanks for all memories and even..... "</p><span class="author">- Name</span>
+    </div>
+    <div class="sticky-note" onclick="openMessageModal(18)">
+     <p>"I hope we could always stay as be.........  "</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(19)">
+     <p>"I miss you my friends"</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(20)">
+     <p>"Never break bondss! "</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(21)">
+     <p>"Class room oru HOME aaki thannavar 🥹 Will miss u guyss"</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(22)">
+     <p>"Keep in touch"</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(23)">
+     <p>"No matter where life takes you, believe in yourself."</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(24)">
+     <p>"The two years felt just like Two Days "</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(25)">
+     <p>"Believe in yourself "</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(26)">
+     <p>""</p><span class="author">- Name</span>
+    </div>
+     <div class="sticky-note" onclick="openMessageModal(27)">
+     <p>"“On behalf of INFYNION, heartfelt wishes for a future filled with success, happiness, and lasting connections.”"</p><span class="author">- INFYNION</span>
+    </div><!-- ===== TO ADD MESSAGE 11: Copy from here =====
+      <div class="sticky-note" onclick="openMessageModal(10)">
+        <p>"Your message text here."</p>
+        <span class="author">- Author Name</span>
+      </div>
+      ===== To here, then add to messagesData array below ===== -->
+   </div>
+  </section><!-- Quotes Section -->
+  <section class="quotes-section">
+   <div class="quote-container"><span class="quote-marks">"</span>
+    <p class="quote-text" id="quoteText">We didn't realize we were making memories, we just knew we were having fun.</p><span class="quote-marks">"</span>
+   </div>
+  </section><!-- ========================================
+       🎬 MOVIES SECTION
+       ========================================
+       
+       HOW TO ADD MORE MOVIES:
+       1. Add new movie file (e.g., movie-4.mp4)
+       2. Add to moviesData array in JavaScript
+       3. Use Previous/Next buttons to navigate
+       
+       CURRENT COUNT: 3 movies
+       
+       CONTROLS:
+       - Play/Pause: Toggle video playback
+       - Rewind 10s: Jump back 10 seconds
+       - Forward 10s: Jump forward 10 seconds
+       - Volume: Adjust sound level
+       - Progress Bar: Click to seek to any position
+       - Previous/Next: Navigate between movies
+  -->
+  <section class="movies-section" id="movies">
+   <div class="section-header">
+    <h2>Class Movies</h2>
+    <p class="section-subtitle">Our cinematic memories</p>
+   </div>
+   <div class="video-player-wrapper">
+    <div class="video-display" id="videoDisplay"><button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen View" aria-label="Fullscreen View">⛶</button>
+     <video id="mainVideoPlayer" class="main-video-player"><source id="mainVideoSource" src="farevid.mp4" type="video/mp4"> Your browser does not support the video tag.
+     </video>
+    
+      
+     </div>
+    </div>
+    <div class="video-title-display">
+     <h3 id="currentMovieTitle">Select a movie</h3>
+    </div>
+    <div class="video-controls">
+     <div class="progress-container"><span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+      <div class="progress-bar" id="progressBar">
+       <div class="progress-filled" id="progressFilled"></div>
+      </div>
+     </div>
+     <div class="controls-buttons"><button class="control-btn" id="prevMovieBtn" title="Previous Movie" aria-label="Previous Movie">⏮</button> <button class="control-btn" id="rewindBtn" title="Rewind 10 seconds" aria-label="Rewind 10 seconds">⏪</button> <button class="control-btn play-pause" id="playPauseBtn" title="Play/Pause" aria-label="Play/Pause">▶</button> <button class="control-btn" id="forwardBtn" title="Forward 10 seconds" aria-label="Forward 10 seconds">⏩</button> <button class="control-btn" id="nextMovieBtn" title="Next Movie" aria-label="Next Movie">⏭</button>
+      <div class="volume-container"><span class="volume-icon" id="volumeIcon">🔊</span> <input type="range" min="0" max="1" step="0.01" value="0.7" class="video-volume-slider" id="videoVolumeSlider" aria-label="Volume">
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- ========================================
+       🎬 CREDITS SECTION
+       ========================================
+       
+       TO EDIT:
+       - Update school name, class, teacher name
+       - Add/remove credits-item blocks as needed
+       - Update Instagram and Website URLs
+  -->
+  <section class="credits-section" id="credits">
+   <h2>Credits</h2>
+   <div class="credits-grid">
+    <div class="credits-item">
+     <h3>Class</h3>
+     <p>Class of 2024-26</p>
+    </div>
+    <div class="credits-item">
+     <h3>School</h3>
+     <p> School</p>
+    </div>
+    <div class="credits-item">
+     <h3>Class Teacher</h3>
+     <p></p>
+    </div>
+    <div class="credits-item">
+    
+    </div>
+   </div>
+   <div class="credits-footer">
+    <p>Made with love❤️ for the best class ever</p>
+    <div class="social-links"><a href="https://instagram.com/_infynion_" target="_blank" rel="noopener noreferrer" class="social-link"> <span class="social-icon">📷</span> <span>Follow us on Instagram</span> </a> <a href="https://infynion.in" target="_blank" rel="noopener noreferrer" class="social-link"> <span class="social-icon">🌐</span> <span>Visit Our Website</span> </a>
+    </div><small>© 2026 INFYNION. All rights reserved. </small><br>
+    <small>Designed and Developed by INFYNION</small>
+    <small>Created by Arfan</small>
+    <small>Last edited on 3rd February 2026</small>
+   </div>
+  </section><!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">×</button> <button class="lightbox-nav prev" onclick="navigatePhoto(-1)" aria-label="Previous">‹</button> <button class="lightbox-nav next" onclick="navigatePhoto(1)" aria-label="Next">›</button>
+   <div class="lightbox-content"><img id="lightboxImg" src="" alt="" class="lightbox-img" loading="lazy" style="display:none;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="lightbox-placeholder" id="lightboxContent" style="display:none;">
+     📸
+    </div>
+    <p class="lightbox-caption" id="lightboxCaption">Photo caption</p>
+   </div>
+  </div><!-- Video Modal -->
+  <div class="video-modal" id="videoModal"><button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close">×</button> <button class="video-modal-nav prev" onclick="navigateVideo(-1)" aria-label="Previous">‹</button> <button class="video-modal-nav next" onclick="navigateVideo(1)" aria-label="Next">›</button>
+   <div class="video-player-container">
+    <video id="modalVideoPlayer" width="100%" height="100%" controls style="display:none; background: #000;"><source id="modalVideoSource" src="" type="video/mp4"> Your browser does not support the video tag.
+    </video>
+    <div class="video-player-placeholder" id="videoPlaceholder"><span class="play-icon">▶</span>
+     <p id="videoTitle">Video Title</p>
+    </div>
+   </div>
+  </div><!-- Slam Book Modal -->
+  <div class="slambook-modal" id="slambookModal"><button class="slambook-modal-close" onclick="closeSlambookModal()" aria-label="Close">×</button> <button class="slambook-modal-nav prev" onclick="navigateSlambook(-1)" aria-label="Previous">‹</button> <button class="slambook-modal-nav next" onclick="navigateSlambook(1)" aria-label="Next">›</button>
+   <div class="slambook-modal-content"><img id="modalPhoto" src="" alt="" class="slambook-modal-photo" loading="lazy" style="display:none;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="slambook-modal-photo-placeholder" id="modalPhotoPlaceholder">
+     👩
+    </div>
+    <h3 class="slambook-modal-name" id="modalName">Student Name</h3>
+    <p class="slambook-modal-nickname" id="modalNickname">"Nickname"</p>
+    <div class="slambook-detail-box">
+     <h4 class="slambook-detail-label">Favorite Memory</h4>
+     <p class="slambook-detail-text" id="modalMemory">Memory text here</p>
+    </div>
+    <div class="slambook-detail-box">
+     <h4 class="slambook-detail-label">Funny Line</h4>
+     <p class="slambook-detail-text" id="modalFunny">Funny line here</p>
+    </div>
+    <div class="slambook-detail-box">
+     <h4 class="slambook-detail-label">Emotional Line</h4>
+     <p class="slambook-detail-text" id="modalEmotional">Emotional line here</p>
+    </div>
+   </div>
+  </div><!-- Message Modal -->
+  <div class="message-modal" id="messageModal">
+   <div class="message-modal-content"><button class="message-modal-close" onclick="closeMessageModal()" aria-label="Close">×</button> <button class="message-modal-nav prev" onclick="navigateMessage(-1)" aria-label="Previous">‹</button> <button class="message-modal-nav next" onclick="navigateMessage(1)" aria-label="Next">›</button>
+    <p class="message-modal-text" id="messageModalText">Message text here</p><span class="message-modal-author" id="messageModalAuthor">- Author</span>
+   </div>
+  </div><!-- Movie Fullscreen Modal -->
+  <div class="movie-fullscreen-modal" id="movieFullscreenModal"><button class="fullscreen-close-btn" id="fullscreenCloseBtn" aria-label="Close Fullscreen">×</button>
+   <div class="fullscreen-video-container">
+    <div class="fullscreen-video-wrapper">
+     <video id="fullscreenVideoPlayer" class="fullscreen-video-player" controls><source id="fullscreenVideoSource" src="" type="video/mp4"> Your browser does not support the video tag.
+     </video>
+    </div>
+    <div class="fullscreen-title">
+     <h3 id="fullscreenMovieTitle">Movie Title</h3>
+    </div>
+    <div class="fullscreen-controls">
+     <div class="controls-buttons"><button class="control-btn" id="fullscreenPrevBtn" title="Previous Movie" aria-label="Previous Movie">⏮</button> <button class="control-btn" id="fullscreenNextBtn" title="Next Movie" aria-label="Next Movie">⏭</button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    /* ========================================
+       📁 FILE NAMING GUIDE
+       ========================================
+       
+       Put ALL files in the SAME folder as this HTML file!
+       
+       PHOTOS (12 photos):
+       - photo-1.jpg through photo-12.jpg
+       
+       VIDEOS (6 videos + 6 thumbnails = 12 files):
+       - video-1.mp4 through video-6.mp4
+       - thumbnail-1.jpg through thumbnail-6.jpg
+       
+       TIMELINE (5 images):
+       - timeline-1.jpg through timeline-5.jpg
+       
+       STUDENTS (6 student photos):
+       - student-1.jpg through student-6.jpg
+       
+       MUSIC (2 songs):
+       - song-1.mp3 and song-2.mp3
+       
+       MOVIES (3 full-length videos):
+       - movie-1.mp4 through movie-3.mp4
+       
+       If image doesn't load, emoji backup will show.
+    */
+    
+    /* ========================================
+       🎬 MOVIES DATA
+       ========================================
+       
+       TO ADD A NEW MOVIE:
+       1. Add movie file (e.g., movie-4.mp4)
+       2. Add new object to this array:
+       
+       { src: 'movie-4.mp4', title: 'Your Movie Title' },
+    */
+   /* const moviesData = [
+      { src: 'farevid.mp4', title: 'Farewell' },
+      { src: 'movie-2.mp4', title: 'Class Trip Documentary' },
+      { src: 'movie-3.mp4', title: 'Farewell Ceremony - Full Event' }
+      // ADD NEW MOVIES HERE
+    ];  */
+    
+const moviesData = [
+  { src: "https://www.w3schools.com/html/mov_bbb.mp4", title: "Test Movie" }
+];          
+
+
+
+    // ========================================
+    // 🎬 MOVIE PLAYER
+    // ========================================
+    const mainVideoPlayer = document.getElementById('mainVideoPlayer');
+    const mainVideoSource = document.getElementById('mainVideoSource');
+    const videoDisplay = document.getElementById('videoDisplay');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const rewindBtn = document.getElementById('rewindBtn');
+    const forwardBtn = document.getElementById('forwardBtn');
+    const prevMovieBtn = document.getElementById('prevMovieBtn');
+    const nextMovieBtn = document.getElementById('nextMovieBtn');
+    const videoVolumeSlider = document.getElementById('videoVolumeSlider');
+    const volumeIcon = document.getElementById('volumeIcon');
+    const progressBar = document.getElementById('progressBar');
+    const progressFilled = document.getElementById('progressFilled');
+    const timeDisplay = document.getElementById('timeDisplay');
+    const currentMovieTitle = document.getElementById('currentMovieTitle');
+    
+    // Fullscreen elements
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const movieFullscreenModal = document.getElementById('movieFullscreenModal');
+    const fullscreenVideoPlayer = document.getElementById('fullscreenVideoPlayer');
+    const fullscreenVideoSource = document.getElementById('fullscreenVideoSource');
+    const fullscreenCloseBtn = document.getElementById('fullscreenCloseBtn');
+    const fullscreenMovieTitle = document.getElementById('fullscreenMovieTitle');
+    const fullscreenPrevBtn = document.getElementById('fullscreenPrevBtn');
+    const fullscreenNextBtn = document.getElementById('fullscreenNextBtn');
+    
+    let currentMovieIndex = 0;
+    let isMoviePlaying = false;
+    
+    // Initialize movie player
+    function initializeMoviePlayer() {
+      if (moviesData.length > 0) {
+        loadMovie(0);
+      }
+      
+      // Set initial volume
+      mainVideoPlayer.volume = 0.7;
+    }
+    
+    // Load a movie
+    function loadMovie(index) {
+      if (index < 0 || index >= moviesData.length) return;
+      
+      currentMovieIndex = index;
+      const movie = moviesData[index];
+      
+      mainVideoSource.src = movie.src;
+      mainVideoPlayer.load();
+      currentMovieTitle.textContent = movie.title;
+      
+      mainVideoPlayer.onloadeddata = function() {
+        videoDisplay.classList.add('has-video');
+        updateTimeDisplay();
+      };
+      
+      mainVideoPlayer.onerror = function() {
+        videoDisplay.classList.remove('has-video');
+        currentMovieTitle.textContent = 'Error loading: ' + movie.title;
+      };
+    }
+    
+    // Play/Pause
+    playPauseBtn.addEventListener('click', function() {
+      if (!mainVideoPlayer.currentSrc) return;
+      
+      if (isMoviePlaying) {
+        mainVideoPlayer.pause();
+        playPauseBtn.textContent = '▶';
+        isMoviePlaying = false;
+      } else {
+        mainVideoPlayer.play().then(() => {
+          playPauseBtn.textContent = '⏸';
+          isMoviePlaying = true;
+        }).catch(err => {
+          console.log('Playback failed:', err);
+        });
+      }
+    });
+    
+    // Rewind 10 seconds
+    rewindBtn.addEventListener('click', function() {
+      if (mainVideoPlayer.currentSrc) {
+        mainVideoPlayer.currentTime = Math.max(0, mainVideoPlayer.currentTime - 10);
+      }
+    });
+    
+    // Forward 10 seconds
+    forwardBtn.addEventListener('click', function() {
+      if (mainVideoPlayer.currentSrc) {
+        mainVideoPlayer.currentTime = Math.min(mainVideoPlayer.duration, mainVideoPlayer.currentTime + 10);
+      }
+    });
+    
+    // Previous movie
+    prevMovieBtn.addEventListener('click', function() {
+      const newIndex = (currentMovieIndex - 1 + moviesData.length) % moviesData.length;
+      loadMovie(newIndex);
+      if (isMoviePlaying) {
+        mainVideoPlayer.play();
+      }
+    });
+    
+    // Next movie
+    nextMovieBtn.addEventListener('click', function() {
+      const newIndex = (currentMovieIndex + 1) % moviesData.length;
+      loadMovie(newIndex);
+      if (isMoviePlaying) {
+        mainVideoPlayer.play();
+      }
+    });
+    
+    // Volume control
+    videoVolumeSlider.addEventListener('input', function() {
+      mainVideoPlayer.volume = this.value;
+      updateVolumeIcon(this.value);
+    });
+    
+    function updateVolumeIcon(volume) {
+      if (volume == 0) {
+        volumeIcon.textContent = '🔇';
+      } else if (volume < 0.5) {
+        volumeIcon.textContent = '🔉';
+      } else {
+        volumeIcon.textContent = '🔊';
+      }
+    }
+    
+    // Progress bar
+    mainVideoPlayer.addEventListener('timeupdate', function() {
+      if (!mainVideoPlayer.duration) return;
+      
+      const progress = (mainVideoPlayer.currentTime / mainVideoPlayer.duration) * 100;
+      progressFilled.style.width = progress + '%';
+      updateTimeDisplay();
+    });
+    
+    progressBar.addEventListener('click', function(e) {
+      if (!mainVideoPlayer.duration) return;
+      
+      const rect = progressBar.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const percentage = clickX / rect.width;
+      mainVideoPlayer.currentTime = percentage * mainVideoPlayer.duration;
+    });
+    
+    // Format time helper
+    function formatTime(seconds) {
+      if (isNaN(seconds)) return '0:00';
+      
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return mins + ':' + (secs < 10 ? '0' : '') + secs;
+    }
+    
+    function updateTimeDisplay() {
+      const current = formatTime(mainVideoPlayer.currentTime);
+      const duration = formatTime(mainVideoPlayer.duration);
+      timeDisplay.textContent = current + ' / ' + duration;
+    }
+    
+    // Auto-pause when video ends
+    mainVideoPlayer.addEventListener('ended', function() {
+      playPauseBtn.textContent = '▶';
+      isMoviePlaying = false;
+    });
+    
+    // Fullscreen functionality
+    fullscreenBtn.addEventListener('click', function() {
+      if (!mainVideoPlayer.currentSrc || !moviesData[currentMovieIndex]) return;
+      
+      openFullscreenMovie();
+    });
+    
+    function openFullscreenMovie() {
+      const movie = moviesData[currentMovieIndex];
+      
+      // Copy current movie to fullscreen player
+      fullscreenVideoSource.src = movie.src;
+      fullscreenVideoPlayer.load();
+      fullscreenMovieTitle.textContent = movie.title;
+      
+      // Sync playback position and state
+      fullscreenVideoPlayer.currentTime = mainVideoPlayer.currentTime;
+      fullscreenVideoPlayer.volume = mainVideoPlayer.volume;
+      
+      // Pause main player
+      mainVideoPlayer.pause();
+      isMoviePlaying = false;
+      playPauseBtn.textContent = '▶';
+      
+      // Open fullscreen modal
+      movieFullscreenModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      
+      // Auto-play in fullscreen
+      fullscreenVideoPlayer.play().catch(err => {
+        console.log('Fullscreen autoplay failed:', err);
+      });
+    }
+    
+    function closeFullscreenMovie() {
+      // Sync position back to main player
+      mainVideoPlayer.currentTime = fullscreenVideoPlayer.currentTime;
+      
+      // Pause fullscreen player
+      fullscreenVideoPlayer.pause();
+      
+      // Close modal
+      movieFullscreenModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    
+    fullscreenCloseBtn.addEventListener('click', closeFullscreenMovie);
+    
+    // Fullscreen navigation
+    fullscreenPrevBtn.addEventListener('click', function() {
+      const newIndex = (currentMovieIndex - 1 + moviesData.length) % moviesData.length;
+      currentMovieIndex = newIndex;
+      loadMovie(newIndex);
+      
+      // Update fullscreen player
+      const movie = moviesData[currentMovieIndex];
+      fullscreenVideoSource.src = movie.src;
+      fullscreenVideoPlayer.load();
+      fullscreenMovieTitle.textContent = movie.title;
+      fullscreenVideoPlayer.play().catch(err => console.log('Play failed:', err));
+    });
+    
+    fullscreenNextBtn.addEventListener('click', function() {
+      const newIndex = (currentMovieIndex + 1) % moviesData.length;
+      currentMovieIndex = newIndex;
+      loadMovie(newIndex);
+      
+      // Update fullscreen player
+      const movie = moviesData[currentMovieIndex];
+      fullscreenVideoSource.src = movie.src;
+      fullscreenVideoPlayer.load();
+      fullscreenMovieTitle.textContent = movie.title;
+      fullscreenVideoPlayer.play().catch(err => console.log('Play failed:', err));
+    });
+    
+    // Keyboard shortcuts for movie player
+    document.addEventListener('keydown', function(e) {
+      // Fullscreen modal controls
+      if (movieFullscreenModal.classList.contains('open')) {
+        if (e.key === 'Escape') {
+          closeFullscreenMovie();
+        }
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          fullscreenPrevBtn.click();
+        }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          fullscreenNextBtn.click();
+        }
+        return;
+      }
+
+
+
+
+      
+      // Main player controls
+      if (!mainVideoPlayer.currentSrc) return;
+      
+      // Only if no other modal is open
+      if (!lightbox.classList.contains('open') && 
+          !videoModal.classList.contains('open') && 
+          !messageModal.classList.contains('open') && 
+          !slambookModal.classList.contains('open')) {
+        
+        if (e.code === 'Space') {
+          e.preventDefault();
+          playPauseBtn.click();
+        }
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          rewindBtn.click();
+        }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          forwardBtn.click();
+        }
+      }
+    });
+
+    // ✅ Start movie player
+initializeMoviePlayer();
+    
+    /* ========================================
+       👥 STUDENT DATA
+       ========================================
+       
+       TO ADD A NEW STUDENT:
+       1. Add student card in HTML above (copy template)
+       2. Add new object to this array:
+       
+       {
+         photo: 'student-7.jpg',
+         name: 'Student Name',
+         nickname: 'The Nickname',
+         memory: 'Favorite memory description...',
+         funny: 'Funny quote or line...',
+         emotional: 'Emotional or heartfelt message...'
+       },
+    */
+    const studentsData = [
+      {
+        photo: '',
+        name: 'Name',
+        nickname: 'The Mom Friend',
+        memory: 'The Whole year was my favourite memory..',
+        funny: 'MA padichalum BA padichalum NA marakkalee....😁',
+        emotional: 'Ninghalude koode ayirunnapoo 2 varsham poyath arinjillaaa......'
+      },
+      {
+        photo: '',
+        name: 'Name',
+        nickname: 'The Class Clown',
+        memory: 'Fun with friends during recess and group projects. Those moments of laughter and teamwork made school unforgettable.',
+        funny: 'I love you ',
+        emotional: 'The era was something special 🥺'
+      },
+      {
+        photo: '',
+        name: 'Name',
+        nickname: 'The Topper',
+        memory: 'Every moment with them especially GRASS!🥹💗',
+        funny: 'Faaaah!😹',
+        emotional: 'Came with teary eyes, leaving with a heavy heart!😭💗'
+      },
+      {
+        photo: '',
+        name: 'Name',
+        nickname: 'The Sports Star',
+        memory: 'I met someone worthy to be with me and that person was wonderful and so much fun to be with i dont know what to say I am just a normal guy just some big dreams I want everything be fine I was thinking I could not do it but that one person kept me going all the time and I was happy and I think I made so many people happy to with that special person 😁✨️.',
+        funny: 'The funny is that when ever we had fun we were always together 😌',
+        emotional: 'I will miss the memories and the those who supported me in my worst time '
+      },
+      {
+        photo: '',
+        name: 'Name',
+        nickname: 'The Artist',
+        memory: '+1 Excursion ',
+        funny: 'I am a perfectly Imperfect',
+        emotional: 'The ink on our shirts will fade, but the way we felt in this sunset will stay forever etched in the marrow of our bones.'
+      },
+      {
+        photo: '',
+        name: 'Name',
+        nickname: 'The Quiet One',
+        memory: 'Gossiping in our spot ',
+        funny: 'Faaaaaaahhhhh',
+        emotional: 'Miss all of you❤️'
+      },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Sports day, Farewell',
+         funny: 'Don\'t let anyone to ruin your day, it\'s your day, ruin it yourself  ',
+         emotional: 'How beautiful strong we are,after breaking and falling still holding on to kindness ,with all our heats '
+       }
+       ,
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Farewell🙌🏻',
+         funny: 'Cake is a cake even is a cupcake🫣',
+         emotional: 'Onnulladaa💀'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: '2025 was the best memory more than lose i gained some💎 with the intentions forever ♾️',
+         funny: '"I thought never gonna get a batch like the idiots i got in 2024-26, real 💎 were found"',
+         emotional: 'Leaving you people is something more than a heartbreak!😭.'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Hmm..! Tricky question 😌 1000 nds off...',
+         funny: 'Ella parayoola...',
+         emotional: '"𝐘𝐞𝐡 𝐝𝐨𝐬𝐭𝐢 𝐡𝐚𝐦 𝐧𝐚𝐡𝐢 𝐭𝐨𝐝𝐞𝐧𝐠𝐞 𝐓𝐨𝐝𝐞𝐧𝐠𝐞 𝐝𝐚𝐦 𝐦𝐚𝐠𝐚𝐫 𝐭𝐞𝐫𝐚 𝐬𝐚𝐭𝐡 𝐧𝐚 𝐜𝐡𝐡𝐨𝐝𝐞𝐧𝐠𝐚"'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Favorite memory? 🤔 I\'d say it\'s when I used to sit next to my friend and crack up cheesy jokes at random times. Really tests up my creativity sometimes. Heh. :3',
+         funny: 'My favorite line? oh, asking MY favorite line? I have alot. Depends on the situation. How about.."Every 60 seconds in Africa, a minute passes. 🤓👆" or how about...Nvm, It\'s getting cringe.',
+         emotional: 'As a forgetful person, I write down every little thing in my trusty old diary here. It contains everything from the start. I was on cloud nine when I could get any opportunity to skip school but now..? I don\'t think I could skip school anymore :/'
+       },
+      {
+         photo: 'student-7.jpg',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Annual Day , farewell ',
+         funny: 'Graduated with honors… in procrastination',
+         emotional: '“Fourteen years of laughter, lessons, and quiet growth — over time, life unfolded quietly, holding more than ever shown, and yet so much was seen through the wrong lens — leaving memories that will always remain, shaping who we’ve become.”'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Onam celebration💖💖',
+         funny: 'Even if I forget the formulas , I will not forget the fun and trauma we all had together 😜😜',
+         emotional: 'Wanna going to miss everyone badly 😫'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'I think its the break time we get , even its just few minutes a million memories are made and also annual day chaos ,',
+         funny: '12thil annelum ellathinum oru pirri lose annu , kazhap is the main characteristic feature of our class ',
+         emotional: 'Friends like u turn ordinary days into memories I will carry forever 🫂🩷'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'School tour',
+         funny: 'Cake is a cake even it is a cupcake ',
+         emotional: 'I love my friends '
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'ourrr 2k25,and a thing happened on a day! ',
+         funny: 'Everything feels heavyy sayyy fahhhhh',
+         emotional: 'If someone asked me to go to where you get valued i went to my special one! '
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'It isn\'t a single day but the whole 11th and 12th phase 💗',
+         funny: 'Kannadach kidakkanath njn kandu👀',
+         emotional: 'Miss those benches, laughs & people 🥹'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Food fest day',
+         funny: 'Faahhhhhh ',
+         emotional: 'We were not just classmates we were family'
+      },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: '+1 tour ✨️',
+         funny: 'All our memories are special… especially the ones we can’t tell anyone ',
+         emotional: 'Even if time changes everything, this memory of us will always stay the same'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Not any special memory the two years was full of favourite and unforgettable memories ',
+         funny: 'We don\'t need enemies, we have each other.',
+         emotional: '“Not blood, not same house… still my people.”'
+       },
+      {
+         photo: '',
+         name: 'Name',
+         nickname: 'The Nickname',
+         memory: 'Farewell ',
+         funny: 'None',
+         emotional: 'To miss you guy\'s '
+       },
+      {
+         photo: 'g.jpg',
+         name: 'Steve Harrington',
+         nickname: '',
+         memory: ' ',
+         funny: '',
+         emotional: ''
+       }
+
+       ];
+      // ADD NEW STUDENTS HERE
+    
+    
+    /* ========================================
+       📸 PHOTO DATA
+       ========================================
+       
+       TO ADD A NEW PHOTO:
+       1. Add gallery-item in HTML above (copy template)
+       2. Add new object to this array:
+       
+       { src: 'photo-13.jpg', emoji: '📷', caption: 'Your caption here' },
+    */
+    const photos = [
+      { src: '', emoji: '📸', caption: 'First day of school - Where it all began' },
+      { src: '', emoji: '🎉', caption: 'Inauguration day' },
+      { src: '', emoji: '🏃', caption: 'Sports day' },
+      { src: '', emoji: '📖', caption: 'Sports day ' },
+      { src: '', emoji: '🎭', caption: 'Independence day celebration' },
+      { src: '', emoji: '🌴', caption: 'Independence day celebration' },
+      { src: '', emoji: '🎓', caption: 'Exhibition and food fest' },
+      { src: '', emoji: '💕', caption: 'New year celebration' },
+      { src: '', emoji: '🍕', caption: 'Onam celebration' },
+      { src: '', emoji: '🎨', caption: 'Onam celebration' },
+      { src: '', emoji: '📚', caption: 'Teacher day celebration' },
+      { src: '', emoji: '🎤', caption: 'Farewell' },
+       { src: '', emoji: '🎤', caption: 'Class 11 ends' },
+        { src: '', emoji: '🎤', caption: 'Class 12 Beginning' },
+         { src: '', emoji: '🎤', caption: 'Environmental day celebration' },
+          { src: '', emoji: '🎤', caption: 'Yoga day celebration' },
+           { src: '', emoji: '🎤', caption: 'I V' },
+            { src: '', emoji: '🎤', caption: 'Tour' },
+             { src: '', emoji: '🎤', caption: 'Tour' },
+              { src: '', emoji: '🎤', caption: 'Annual day celebration' },
+               { src: '', emoji: '🎤', caption: 'Annual day celebration' },
+                { src: '', emoji: '🎤', caption: 'Farewell' }
+      // ADD NEW PHOTOS HERE
+    ];
+    
+    /* ========================================
+       🎬 VIDEO DATA
+       ========================================
+       
+       TO ADD A NEW VIDEO:
+       1. Add video-card in HTML above (copy template)
+       2. Add new object to this array:
+       
+       { src: 'video-7.mp4', title: 'Your Video Title', desc: 'Your description' },
+    */
+    const videos = [
+      { src: 'video-1.mp4', title: 'Class Photo Day', desc: 'Behind the scenes of our official photo day' },
+      { src: 'video-2.mp4', title: 'Sports Day Highlights', desc: 'The best moments from our championship' },
+      { src: 'video-3.mp4', title: 'Annual Function Performance', desc: 'Our magical performance night' },
+      { src: 'video-4.mp4', title: 'Class Trip Vlog', desc: 'Adventures and memories from our trip' },
+      { src: 'farevid.mp4', title: 'Farewell Party', desc: 'Tears, laughter, and goodbye speeches' },
+      { src: 'video-6.mp4', title: 'Best Pranks Compilation', desc: 'The funniest moments caught on camera' }
+      // ADD NEW VIDEOS HERE
+    ];
+    
+    /* ========================================
+       💌 MESSAGES DATA
+       ========================================
+       
+       TO ADD A NEW MESSAGE:
+       1. Add sticky-note in HTML above (copy template)
+       2. Add new object to this array:
+       
+       { text: '"Your message text here."', author: '- Author Name' },
+    */
+    const messagesData = [
+      { text: '"Ellarkkum Joli kitteett 1st enikk chelav cheyyanamm..... Aa joli kittannn njn prarthikkum😌"', author: '- Name' },
+      { text: '"Remember who you are"', author: '- Name' },
+      { text: '"No matter where life takes us, remember this version of us!🤧🖤"', author: '- Anamika S Anil' },
+      { text: '"thank you all I am not a emotional guy and I don\'t show that much of a emotion in person but I felt something is fading away from me and will miss the smiles we shared and "', author: '- Name' },
+      { text: '"I just wanna say is that we will always be together ❤️ and (we will put a reunion in 10 years so u better work hard )"', author: '- Name' },
+      { text: '"The future belongs to those who believe in the beauty of their dreams"', author: '- Name' },
+      { text: '"Live your life to the fullest❤️All the best❤️"', author: '- Name' },
+      { text: '"Don\'t burn yourself to warm others"', author: '- Name' },
+      { text: '"Vallapozhum vilikane guys💗"', author: '- Adarsh' },
+      { text: '"Remember me as a drop of water in the cascade of ur memory 🥹"', author: '- Name' },
+      { text: '"Hotwheels vaangi tharoo... Allel oru  tourist bus aayalum mathi.. 🥲"', author: '- Abhishek' },
+      { text: ' "As I approach the end of this memorable journey, it\'s important to express how being in this school has truly shaped me in profound ways.  "', author: '- Name' },
+      { text:  '"While I may not be the most expressive person by nature, I feel compelled to share my deep connection and emotional attachment to this place. "', author: '- Name' },
+      { text: '" During my time here, I have forged lasting friendships, encountered a supportive and understanding life partner who has enriched my perspective on this world,  "', author: '- Name' },
+      { text: '"and received invaluable support from an incredible group of teachers. The cries, laughters, gossips,cringe-worthy moments,embarassing times– ,"', author: '- Name' },
+      { text: '"Each experience is deeply treasured and the memories we have created are priceless. Despite the challenges and personal growth I faced, I have come to embrace all facets of my journey here."', author: '- Name' },
+      { text: '"Chase your dreams, laugh often, and make every moment count!”"', author: '- Name' },
+      { text: '"Success doesn\'t come overnight but with our hardwork and confidence..... So go ahead till you reach your destination ❤️‍🔥"', author: '- Name' },
+      { text: '"BSc padichalum MSc padichalum enea marakaruthu\nBut seriously thanks for all memories and even if we go on different paths.  "', author: '- Name' },
+      { text: '"I hope we could always stay as be friends.I will always cherish the memories i got with u all❤️"', author: '- Name' },
+      { text: '"I miss you my friends"', author: '- Name' },
+      { text: '"Never break bondss! "', author: '- Name' },
+      { text: '"Class room oru HOME aaki thannavar : ) Will miss u guyss"', author: '- Name' },
+      { text: '"Keep in touch"', author: '- Name' },
+      { text: '"No matter where life takes you, believe in yourself."', author: '- Name' },
+      { text: '"The two years felt just like Two Days "', author: '- Name' },
+      { text: '"Believe in yourself "', author: '- Name' },
+      { text: '""', author: '- ' },
+      { text: '"On behalf of INFYNION, heartfelt wishes for a future filled with success, happiness, and lasting connections."', author: '- INFYNION' },
+      { text: '""', author: '- ' },
+      { text: '""', author: '- ' }
+      // ADD NEW MESSAGES HERE
+    ];
+    
+    /* ========================================
+       💭 QUOTES (rotating quotes section)
+       ========================================
+       
+       TO ADD MORE QUOTES:
+       Just add new strings to this array
+    */
+    const quotes = [
+      "We didn't realize we were making memories, we just knew we were having fun.",
+      "These are the days we'll remember forever.",
+      "Friends become our chosen family.",
+      "The best textbook is in the heart of a friend.",
+      "School days are the best days of life.",
+      "In the end, we only regret the chances we didn't take.",
+      "Growing up is optional, but growing together was our choice.",
+      "The memories we made will last a lifetime.",
+      "We came as strangers, we left as family.",
+      "Thank you for the memories that will never fade."
+      // ADD NEW QUOTES HERE
+    ];
+    
+    let currentQuoteIndex = 0;
+    
+    // ========================================
+    // 🎵 MUSIC CONTROL
+    // ========================================
+   
+   
+
+  
+   
+   
+   
+    const musicTracks = document.querySelectorAll('.bg-music-track');
+    const musicToggle = document.getElementById('musicToggle');
+    const volumeSlider = document.getElementById('volumeSlider');
+    
+    let currentTrackIndex = 0;
+    let currentMusic = musicTracks[currentTrackIndex];
+    let isMusicPlaying = false;
+    
+    // Set initial volume for all tracks
+    musicTracks.forEach(track => {
+      track.volume = 0.35;
+    });
+    
+    // Function to play next track when current one ends
+    function playNextTrack() {
+      if (musicTracks.length === 0) return;
+      
+      if (currentMusic) {
+        currentMusic.pause();
+        currentMusic.currentTime = 0;
+      }
+      
+      currentTrackIndex = (currentTrackIndex + 1) % musicTracks.length;
+      currentMusic = musicTracks[currentTrackIndex];
+      
+      if (isMusicPlaying) {
+        currentMusic.play().catch(err => {
+          console.log('Failed to play next track:', err);
+        });
+      }
+    }
+    
+    // Add event listeners to all tracks
+    musicTracks.forEach(track => {
+      track.addEventListener('ended', playNextTrack);
+    });
+    
+    // Auto-play music on load
+    window.addEventListener('load', function() {
+      if (musicTracks.length > 0) {
+        currentMusic.play().then(() => {
+          isMusicPlaying = true;
+          musicToggle.textContent = '🎵';
+        }).catch(err => {
+          console.log('Autoplay blocked, will play on first interaction');
+          document.addEventListener('click', function playOnInteraction() {
+            if (!isMusicPlaying && musicTracks.length > 0) {
+              currentMusic.play().then(() => {
+                isMusicPlaying = true;
+                musicToggle.textContent = '🎵';
+              }).catch(() => {
+                console.log('Music playback failed');
+              });
+            }
+            document.removeEventListener('click', playOnInteraction);
+          }, { once: true });
+        });
+      }
+    });
+    
+    // Music toggle button
+    musicToggle.addEventListener('click', function() {
+      if (musicTracks.length === 0) return;
+      
+      if (isMusicPlaying) {
+        currentMusic.pause();
+        isMusicPlaying = false;
+        musicToggle.textContent = '🔇';
+      } else {
+        currentMusic.play().then(() => {
+          isMusicPlaying = true;
+          musicToggle.textContent = '🎵';
+        }).catch(err => {
+          console.log('Music playback failed:', err);
+        });
+      }
+    });
+    
+    // Volume control
+    volumeSlider.addEventListener('input', function() {
+      const newVolume = this.value;
+      musicTracks.forEach(track => {
+        track.volume = newVolume;
+      });
+    });
+    
+    // ========================================
+    // 🧭 NAVIGATION
+    // ========================================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navbar = document.getElementById('navbar');
+    
+    hamburger.addEventListener('click', function() {
+      mobileMenu.classList.toggle('open');
+    });
+    
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // ========================================
+    // 🎬 SCROLL ANIMATIONS
+    // ========================================
+    function handleScrollAnimations() {
+      const elements = document.querySelectorAll('.section-header, .timeline-item, .gallery-item, .video-card, .slambook-card, .sticky-note');
+      
+      elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight - 100;
+        
+        if (isVisible) {
+          element.classList.add('visible');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', handleScrollAnimations);
+    window.addEventListener('load', handleScrollAnimations);
+    
+    // ========================================
+    // 📸 PHOTO GALLERY & LIGHTBOX
+    // ========================================
+    let currentPhotoIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxContent = document.getElementById('lightboxContent');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    
+    function openLightbox(index) {
+      currentPhotoIndex = index;
+      displayPhoto(currentPhotoIndex);
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function displayPhoto(index) {
+      const photo = photos[index];
+      lightboxImg.src = photo.src;
+      lightboxImg.alt = photo.caption;
+      lightboxImg.style.display = 'block';
+      lightboxContent.style.display = 'none';
+      lightboxCaption.textContent = photo.caption;
+    }
+    
+    function navigatePhoto(direction) {
+      currentPhotoIndex = (currentPhotoIndex + direction + photos.length) % photos.length;
+      displayPhoto(currentPhotoIndex);
+    }
+    
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+    
+    // ========================================
+    // 🎬 VIDEO GALLERY & MODAL
+    // ========================================
+    let currentVideoIndex = 0;
+    const videoModal = document.getElementById('videoModal');
+    const videoTitle = document.getElementById('videoTitle');
+    const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+    const modalVideoSource = document.getElementById('modalVideoSource');
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
+    
+    function openVideoModal(index) {
+      currentVideoIndex = index;
+      displayVideo(currentVideoIndex);
+      videoModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function displayVideo(index) {
+      const video = videos[index];
+      videoTitle.textContent = video.title;
+      
+      modalVideoSource.src = video.src;
+      modalVideoPlayer.load();
+      
+      modalVideoPlayer.onloadeddata = function() {
+        modalVideoPlayer.style.display = 'block';
+        videoPlaceholder.style.display = 'none';
+      };
+      
+      modalVideoPlayer.onerror = function() {
+        modalVideoPlayer.style.display = 'none';
+        videoPlaceholder.style.display = 'flex';
+      };
+    }
+    
+    function navigateVideo(direction) {
+      if (modalVideoPlayer) {
+        modalVideoPlayer.pause();
+        modalVideoPlayer.currentTime = 0;
+      }
+      
+      currentVideoIndex = (currentVideoIndex + direction + videos.length) % videos.length;
+      displayVideo(currentVideoIndex);
+    }
+    
+    function closeVideoModal() {
+      if (modalVideoPlayer) {
+        modalVideoPlayer.pause();
+        modalVideoPlayer.currentTime = 0;
+      }
+      
+      videoModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    
+    videoModal.addEventListener('click', function(e) {
+      if (e.target === videoModal) {
+        closeVideoModal();
+      }
+    });
+    
+    // ========================================
+    // 📖 SLAM BOOK & MODAL
+    // ========================================
+    const slambookModal = document.getElementById('slambookModal');
+    const modalPhoto = document.getElementById('modalPhoto');
+    const modalPhotoPlaceholder = document.getElementById('modalPhotoPlaceholder');
+    const modalName = document.getElementById('modalName');
+    const modalNickname = document.getElementById('modalNickname');
+    const modalMemory = document.getElementById('modalMemory');
+    const modalFunny = document.getElementById('modalFunny');
+    const modalEmotional = document.getElementById('modalEmotional');
+    let currentSlambookIndex = 0;
+    
+    function openSlambookModal(index) {
+      currentSlambookIndex = index;
+      displaySlambook(currentSlambookIndex);
+      
+      slambookModal.scrollTop = 0;
+
+      slambookModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function displaySlambook(index) {
+      const student = studentsData[index];
+      
+      if (student) {
+        modalPhoto.src = student.photo;
+        modalPhoto.alt = student.name;
+        modalPhoto.style.display = 'block';
+        modalPhotoPlaceholder.style.display = 'none';
+        
+        modalName.textContent = student.name;
+        modalNickname.textContent = `"${student.nickname}"`;
+        modalMemory.textContent = student.memory;
+        modalFunny.textContent = student.funny;
+        modalEmotional.textContent = student.emotional;
+      }
+    }
+    
+    function navigateSlambook(direction) {
+      currentSlambookIndex = (currentSlambookIndex + direction + studentsData.length) % studentsData.length;
+      displaySlambook(currentSlambookIndex);
+
+      slambookModal.scrollTop = 0;
+
+    }
+    
+    function closeSlambookModal() {
+      slambookModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    
+    // ========================================
+    // 💌 MESSAGES & MODAL
+    // ========================================
+    let currentMessageIndex = 0;
+    const messageModal = document.getElementById('messageModal');
+    const messageModalText = document.getElementById('messageModalText');
+    const messageModalAuthor = document.getElementById('messageModalAuthor');
+    
+    function openMessageModal(index) {
+      currentMessageIndex = index;
+      displayMessage(currentMessageIndex);
+      messageModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function displayMessage(index) {
+      messageModalText.textContent = messagesData[index].text;
+      messageModalAuthor.textContent = messagesData[index].author;
+    }
+    
+    function navigateMessage(direction) {
+      currentMessageIndex = (currentMessageIndex + direction + messagesData.length) % messagesData.length;
+      displayMessage(currentMessageIndex);
+    }
+    
+    function closeMessageModal() {
+      messageModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    
+    messageModal.addEventListener('click', function(e) {
+      if (e.target === messageModal) {
+        closeMessageModal();
+      }
+    });
+    
+function resetSlamScroll() {
+  const modal=
+  document.querySelector(".slambook-modal");
+  if (modal) {
+    modal.scrollTop = 0;
+  }
+}
+
+
+
+
+    // ========================================
+    // 💭 QUOTES ROTATION
+    // ========================================
+    const quoteText = document.getElementById('quoteText');
+    
+    function rotateQuotes() {
+      currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+      quoteText.textContent = quotes[currentQuoteIndex];
+    }
+    
+    setInterval(rotateQuotes, 10000); // Change quote every 10 seconds
+    
+    // ========================================
+    // 🔗 SMOOTH SCROLL
+    // ========================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // ========================================
+    // ⌨️ KEYBOARD NAVIGATION
+    // ========================================
+    document.addEventListener('keydown', function(e) {
+      // Lightbox keyboard controls
+      if (lightbox.classList.contains('open')) {
+        if (e.key === 'ArrowLeft') navigatePhoto(-1);
+        if (e.key === 'ArrowRight') navigatePhoto(1);
+        if (e.key === 'Escape') closeLightbox();
+      }
+      // Video modal keyboard controls
+      if (videoModal.classList.contains('open')) {
+        if (e.key === 'ArrowLeft') navigateVideo(-1);
+        if (e.key === 'ArrowRight') navigateVideo(1);
+        if (e.key === 'Escape') closeVideoModal();
+      }
+      // Message modal keyboard controls
+      if (messageModal.classList.contains('open')) {
+        if (e.key === 'ArrowLeft') navigateMessage(-1);
+        if (e.key === 'ArrowRight') navigateMessage(1);
+        if (e.key === 'Escape') closeMessageModal();
+      }
+      // Slambook modal keyboard controls
+      if (slambookModal.classList.contains('open')) {
+        if (e.key === 'ArrowLeft') navigateSlambook(-1);
+        if (e.key === 'ArrowRight') navigateSlambook(1);
+        if (e.key === 'Escape') closeSlambookModal();
+      }
+    });
+    
+    // ========================================
+    // 🚀 INITIALIZE ON PAGE LOAD
+    // ========================================
+    window.addEventListener('load', function() {
+      handleScrollAnimations();
+      setTimeout(rotateQuotes, 10000);
+      initializeMoviePlayer();
+    });
+
+
+
+
+
+
+const bgMusicTracks = document.querySelectorAll(".bg-music-track");
+const allVideos = document.querySelectorAll("video");
+
+function pauseBgMusic() {
+  bgMusicTracks.forEach(track => {
+    track.pause();
+  });
+}
+
+function playBgMusic() {
+  bgMusicTracks.forEach(track => {
+    track.play();
+  });
+}
+
+allVideos.forEach(video => {
+  video.addEventListener("play", () => {
+    pauseBgMusic();
+  });
+
+  video.addEventListener("pause", () => {
+    playBgMusic();
+  });
+
+  video.addEventListener("ended", () => {
+    playBgMusic();
+  });
+});
+
+
+
+
+
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c390a78e5bf0c04',t:'MTc2OTM1NzQyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+
+
+
+
